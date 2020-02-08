@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".StartUpScreen">
+
+    <ImageView
+        android:id="@+id/MyHunts"
+        android:layout_width="276dp"
+        android:layout_height="138dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="16dp"
+
+        android:contentDescription="@string/MyHunts"
+        app:srcCompat="@android:drawable/editbox_background" />
+
+    <ImageView
+        android:id="@+id/NewHunt"
+        android:layout_width="276dp"
+        android:layout_height="138dp"
+        android:layout_above="@+id/MyHunts"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-24dp"
+        android:contentDescription="@string/NewHunt"
+        app:srcCompat="@android:drawable/editbox_background" />
+
+    <ImageView
+        android:id="@+id/Continue"
+        android:layout_width="276dp"
+        android:layout_height="138dp"
+        android:layout_above="@+id/NewHunt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-24dp"
+        android:contentDescription="@string/Continue"
+        android:onClick="continueHunt"
+        app:srcCompat="@android:drawable/editbox_background" />
+
+    <TextView
+        android:id="@+id/ContinueText"
+        android:layout_width="276dp"
+        android:layout_height="80dp"
+        android:layout_alignTop="@+id/Continue"
+        android:layout_alignBottom="@+id/Continue"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:text="@string/Continue"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="276dp"
+        android:layout_height="80dp"
+        android:layout_below="@+id/ContinueText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:gravity="center"
+        android:text="@string/NewHunt"
+        android:onClick="newHunt"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="276dp"
+        android:layout_height="136dp"
+        android:layout_alignBottom="@+id/MyHunts"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="0dp"
+        android:gravity="center"
+        android:onClick="myHunts"
+        android:text="@string/MyHunts"
+        android:textSize="30sp" />
+</RelativeLayout>

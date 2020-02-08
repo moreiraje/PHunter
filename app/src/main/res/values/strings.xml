@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">Treasure</string>
+    <string name="title_activity_map">Map</string>
+    <string name="Continue">Continue</string>
+    <string name="Back">Back</string>
+    <string name="Hint">Hint</string>
+    <string name="ProfileAcc">Profile</string>
+    <string name="NewHunt">New Hunt</string>
+    <string name="MyHunts">My Hunts</string>
+</resources>
