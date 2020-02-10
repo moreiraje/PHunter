@@ -42,8 +42,10 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     Marker mark;        //this is the user value that appears on the map we can manipulate this
     Location treasureLocation = new Location("");       //tresurte chest locaiton
     TreasureChest chest = new TreasureChest();
+    TreasureChest array[] = new TreasureChest[10];
     boolean firstLocation = true;
     Circle circle;
+    int index=0;
    // private MarkerOptions options = new MarkerOptions();
 
 
@@ -55,7 +57,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         setUpMapIfNeeded();
-        setUpTreasureChest();
+        setUpTreasureArray();
+        setUpTreasureChest(index);
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -73,13 +76,39 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
     }
 
-    private void setUpTreasureChest() {
+    private void setUpTreasureArray() {
+        int i=0;
+        TreasureChest temp = new TreasureChest();
+        temp.setLatitude(37.375010);
+        temp.setLongitude( -77.529626);
+        temp.setRingLatitude(37.374334);
+        temp.setRingLongitude(-77.529381);
+        temp.setRadius(150);
+        array[i] = temp;
+        i=+1;
+        TreasureChest temp2 = new TreasureChest();
+        temp2.setLatitude(37.375120);
+        temp2.setLongitude( -77.528674);
+        temp2.setRingLatitude(37.375054);
+        temp2.setRingLongitude(-77.527811);
+        temp2.setRadius(50);
+        array[i] = temp2;
+        i=+1;
+        Log.d(TAG, "setUpTreasureArray: "+ array[0].getLatitude());
+    }
 
-        chest.setLatitude(37.375010);
-        chest.setLongitude( -77.529626);
-        chest.setRingLatitude(37.374334);
-        chest.setRingLongitude(-77.529381);
-       chest.setRadius(150);
+    private void setUpTreasureChest(int index) {
+
+      //  chest.setLatitude(37.375010);
+      //  chest.setLongitude( -77.529626);
+      //  chest.setRingLatitude(37.374334);
+      //  chest.setRingLongitude(-77.529381);
+      // chest.setRadius(150);
+       chest.setLatitude(array[index].latitude);
+       chest.setLongitude(array[index].longitude);
+       chest.setRingLatitude(array[index].ringLatitude);
+       chest.setRingLongitude(array[index].ringLongitude);
+       chest.setRadius(array[index].radius);
       //  treasureLocation.setLatitude(37.375010);        //these are just for testing near me
      //   treasureLocation.setLongitude( -77.529626);
 
@@ -176,6 +205,11 @@ public void backPress(View view)
         if(location.distanceTo(treasureLocation)<= 10 ){
             Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
             toast.show();
+            index++; //go to next index in treasure chest
+            setUpTreasureChest(index);
+            circle.setCenter(chest.getRingCoordinates());
+            circle.setRadius(chest.radius);
+
         }
 
 
@@ -225,6 +259,7 @@ public void backPress(View view)
 
 
 
+
     }
 
     private void setUpMapIfNeeded() {
@@ -237,7 +272,7 @@ public void backPress(View view)
             mapFrag.getMapAsync(this);
             // Check if we were successful in obtaining the map.
             if (mMap != null) {
-                setUpMap();
+              //  setUpMap();
             }
         }
     }
