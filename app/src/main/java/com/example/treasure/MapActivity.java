@@ -75,7 +75,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
 
     }
-
+        //this sets up the array with the tresure chest locations in an array so we can pull an induvual chest and know where it is.
     private void setUpTreasureArray() {
         int i=0;
         TreasureChest temp = new TreasureChest();
@@ -84,17 +84,47 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp.setRingLatitude(37.374334);
         temp.setRingLongitude(-77.529381);
         temp.setRadius(150);
+        temp.setHint("hint1");
         array[i] = temp;
-        i=+1;
+        i++;
         TreasureChest temp2 = new TreasureChest();
         temp2.setLatitude(37.375120);
         temp2.setLongitude( -77.528674);
         temp2.setRingLatitude(37.375054);
         temp2.setRingLongitude(-77.527811);
         temp2.setRadius(50);
+        temp2.setHint("hint2");
         array[i] = temp2;
-        i=+1;
-        Log.d(TAG, "setUpTreasureArray: "+ array[0].getLatitude());
+        i++;
+        TreasureChest temp3 = new TreasureChest();
+        temp3.setLatitude(37.375367);
+        temp3.setLongitude( -77.529086);
+        temp3.setRingLatitude(37.375502);
+        temp3.setRingLongitude(-77.529615);
+        temp3.setRadius(50);
+        temp3.setHint("hint3");
+        array[i] = temp3;
+        i++;
+        TreasureChest temp4 = new TreasureChest();
+        temp4.setLatitude(37.375128);
+        temp4.setLongitude( -77.529200);
+        temp4.setRingLatitude(37.375055);
+        temp4.setRingLongitude(-77.529104);
+        temp4.setRadius(50);
+        temp4.setHint("hint4");
+        array[i] = temp4;
+        i++;
+        TreasureChest temp5 = new TreasureChest();
+        temp5.setLatitude(37.375317);
+        temp5.setLongitude(  -77.528775);
+        temp5.setRingLatitude(37.375317);
+        temp5.setRingLongitude( -77.528775);
+        temp5.setRadius(50);
+        temp5.setHint("hint5");
+        array[i] = temp5;
+        i++;
+
+
     }
 
     private void setUpTreasureChest(int index) {
@@ -104,6 +134,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
       //  chest.setRingLatitude(37.374334);
       //  chest.setRingLongitude(-77.529381);
       // chest.setRadius(150);
+        Log.d(TAG, "setUpTreasureChest: setting u0p new chest number" + index);
        chest.setLatitude(array[index].latitude);
        chest.setLongitude(array[index].longitude);
        chest.setRingLatitude(array[index].ringLatitude);
@@ -202,13 +233,25 @@ public void backPress(View view)
         TextView tester = (TextView)findViewById(R.id.textView);
         tester.setText(location.distanceTo(treasureLocation) +"");
         Log.d(TAG, "checkDistance: distance to tresure =="+ location.distanceTo(treasureLocation) );
-        if(location.distanceTo(treasureLocation)<= 10 ){
-            Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
-            toast.show();
-            index++; //go to next index in treasure chest
-            setUpTreasureChest(index);
-            circle.setCenter(chest.getRingCoordinates());
-            circle.setRadius(chest.radius);
+        if(location.distanceTo(treasureLocation)<= 100 ){
+
+
+            if(index>=5)        //if weve reched the end of the game
+            {
+                Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
+                toast.show();
+                index++; //go to next index in treasure chest
+
+                //TODO CREATE POP UP THAN THEN RETURNS YOU BACK TO THE MENU AFTER CLICKING FINISH
+            }
+
+            else {
+                setUpTreasureChest(index);
+                circle.setCenter(chest.getRingCoordinates());
+                circle.setRadius(chest.radius);
+                TextView hint = (TextView) findViewById(R.id.HintText);
+                hint.setText(chest.hint);
+            }
 
         }
 
@@ -248,16 +291,19 @@ public void backPress(View view)
 
 
     private void setUpMap() {
+
+        Log.d(TAG, "setUpMap: this is ran------");
         mark = mMap.addMarker(new MarkerOptions().position(new LatLng(0, 0)).title("Marker"));
 
         //this creates the circle
-        circle = mMap.addCircle(new CircleOptions()
-                                .center(chest.getRingCoordinates())
-                                .radius(chest.radius)
-                                .strokeColor(Color.TRANSPARENT)
-                                .fillColor(getApplicationContext().getResources().getColor(R.color.circleFill)));
+        if(circle==null) {
+            circle = mMap.addCircle(new CircleOptions()
+                    .center(chest.getRingCoordinates())
+                    .radius(chest.radius)
+                    .strokeColor(Color.TRANSPARENT)
+                    .fillColor(getApplicationContext().getResources().getColor(R.color.circleFill)));
 
-
+        }
 
 
     }

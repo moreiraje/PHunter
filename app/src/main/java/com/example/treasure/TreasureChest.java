@@ -64,4 +64,14 @@ public LatLng getRingCoordinates()
     public double getRadius() {
         return radius;
     }
+
+    public void setHint(String hint) {
+        this.hint = hint;
+    }
+
+    public String getHint() {
+        return hint;
+    }
 }
+
+
