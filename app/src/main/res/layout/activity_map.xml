@@ -8,9 +8,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <fragment
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
         android:layout_width="match_parent"
@@ -60,14 +58,38 @@
 
     <ImageButton
         android:id="@+id/Hintbutton"
-        android:layout_width="85dp"
-        android:layout_height="71dp"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
         android:layout_alignTop="@+id/bottonbanner"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/hint"
         android:contentDescription="@string/Hint"
-        android:onClick="showHint"
-        android:src="@android:drawable/ic_menu_help" />
+        android:onClick="showHint" />
+    <ImageButton
+    android:id="@+id/Goldcoins"
+    android:layout_width="65dp"
+    android:layout_height="65dp"
+    android:layout_alignLeft="@+id/backButton"
+    android:layout_alignTop="@+id/bottonbanner"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/Coins"
+    android:contentDescription="Gold coins counter"
+        />
+
+    <ImageButton
+        android:id="@+id/Chest"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignLeft="@+id/imageView"
+        android:layout_alignTop="@+id/bottonbanner"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/chest"
+        android:contentDescription="Gold coins counter"
+        android:gravity="center_horizontal"/>
+
+
+
 
     <TextView
         android:id="@+id/HintText"
