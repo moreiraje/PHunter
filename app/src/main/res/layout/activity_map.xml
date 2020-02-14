@@ -73,7 +73,7 @@
     android:layout_alignLeft="@+id/backButton"
     android:layout_alignTop="@+id/bottonbanner"
     android:layout_marginTop="10dp"
-    android:background="@drawable/Coins"
+    android:background="@drawable/coins"
     android:contentDescription="Gold coins counter"
         />
 
