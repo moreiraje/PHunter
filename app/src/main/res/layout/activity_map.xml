@@ -25,6 +25,13 @@
         android:orientation="horizontal"
         android:visibility="visible">
 
+        <ImageButton
+            android:id="@+id/Goldcoins"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/coins"
+            android:contentDescription="Gold coins counter" />
     </LinearLayout>
 
     <View
@@ -66,16 +73,6 @@
         android:background="@drawable/hint"
         android:contentDescription="@string/Hint"
         android:onClick="showHint" />
-    <ImageButton
-    android:id="@+id/Goldcoins"
-    android:layout_width="65dp"
-    android:layout_height="65dp"
-    android:layout_alignLeft="@+id/backButton"
-    android:layout_alignTop="@+id/bottonbanner"
-    android:layout_marginTop="10dp"
-    android:background="@drawable/coins"
-    android:contentDescription="Gold coins counter"
-        />
 
     <ImageButton
         android:id="@+id/Chest"

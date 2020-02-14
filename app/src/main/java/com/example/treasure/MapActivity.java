@@ -46,7 +46,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     boolean firstLocation = true;
     Circle circle;
     int index=0;
-   // private MarkerOptions options = new MarkerOptions();
+    TextView hint;
+    // private MarkerOptions options = new MarkerOptions();
 
 
     private static final int REQUEST_CODE = 101;
@@ -56,6 +57,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
+        hint = (TextView) findViewById(R.id.HintText);
         setUpMapIfNeeded();
         setUpTreasureArray();
         setUpTreasureChest(index);
@@ -129,19 +131,11 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
     private void setUpTreasureChest(int index) {
 
-      //  chest.setLatitude(37.375010);
-      //  chest.setLongitude( -77.529626);
-      //  chest.setRingLatitude(37.374334);
-      //  chest.setRingLongitude(-77.529381);
-      // chest.setRadius(150);
+
+        chest = array[index];
+
         Log.d(TAG, "setUpTreasureChest: setting u0p new chest number" + index);
-       chest.setLatitude(array[index].latitude);
-       chest.setLongitude(array[index].longitude);
-       chest.setRingLatitude(array[index].ringLatitude);
-       chest.setRingLongitude(array[index].ringLongitude);
-       chest.setRadius(array[index].radius);
-      //  treasureLocation.setLatitude(37.375010);        //these are just for testing near me
-     //   treasureLocation.setLongitude( -77.529626);
+
 
 
     }
@@ -213,10 +207,11 @@ public void backPress(View view)
         Log.d(TAG, "handleNewLocation: options defined0000000 " +options.toString() );
         Log.d(TAG, "handleNewLocation: last coordinanates " + coordinates.toString());
         mark.setPosition(coordinates);
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinates));
+
         if(firstLocation)                                               //handles the first time a location is found and zooms in on it.
         {
             firstLocation=false;
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinates));
             mMap.animateCamera(CameraUpdateFactory.zoomTo(17));
 
         }
@@ -236,7 +231,7 @@ public void backPress(View view)
         if(location.distanceTo(treasureLocation)<= 100 ){
 
 
-            if(index>=5)        //if weve reched the end of the game
+            if(index>=4)        //if weve reched the end of the game
             {
                 Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
                 toast.show();
@@ -246,10 +241,12 @@ public void backPress(View view)
             }
 
             else {
+                Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
+                toast.show();
+                index++; //go to next index in treasure chest
                 setUpTreasureChest(index);
                 circle.setCenter(chest.getRingCoordinates());
                 circle.setRadius(chest.radius);
-                TextView hint = (TextView) findViewById(R.id.HintText);
                 hint.setText(chest.hint);
             }
 
