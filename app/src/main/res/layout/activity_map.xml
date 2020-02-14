@@ -15,24 +15,14 @@
         android:layout_height="match_parent"
         tools:context=".MapActivity" />
 
-    <LinearLayout
-        android:id="@+id/bottonbanner"
+    <View
+        android:id="@+id/bottomBar"
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:layout_alignBottom="@+id/map"
         android:layout_marginBottom="0dp"
         android:background="@color/colorPrimaryDark"
-        android:orientation="horizontal"
-        android:visibility="visible">
-
-        <ImageButton
-            android:id="@+id/Goldcoins"
-            android:layout_width="65dp"
-            android:layout_height="65dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/coins"
-            android:contentDescription="Gold coins counter" />
-    </LinearLayout>
+        android:visibility="visible" />
 
     <View
         android:id="@+id/bottomAccent"
@@ -52,6 +42,16 @@
         android:text="TextView" />
 
     <ImageButton
+        android:id="@+id/Goldcoins"
+        android:layout_width="65dp"
+        android:layout_height="65dp"
+        android:layout_alignTop="@+id/bottomBar"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:background="@drawable/coins"
+        android:contentDescription="Gold coins counter" />
+
+    <ImageButton
         android:id="@+id/backButton"
         android:layout_width="81dp"
         android:layout_height="59dp"
@@ -63,13 +63,14 @@
         android:onClick="backPress"
         android:src="?attr/actionModeCloseDrawable" />
 
+
     <ImageButton
         android:id="@+id/Hintbutton"
         android:layout_width="65dp"
         android:layout_height="65dp"
-        android:layout_alignTop="@+id/bottonbanner"
-        android:layout_centerHorizontal="true"
+        android:layout_alignTop="@+id/bottomBar"
         android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
         android:background="@drawable/hint"
         android:contentDescription="@string/Hint"
         android:onClick="showHint" />
@@ -79,21 +80,32 @@
         android:layout_width="65dp"
         android:layout_height="65dp"
         android:layout_alignLeft="@+id/imageView"
-        android:layout_alignTop="@+id/bottonbanner"
+        android:layout_alignTop="@+id/bottomBar"
+        android:layout_marginLeft="-8dp"
         android:layout_marginTop="10dp"
         android:background="@drawable/chest"
         android:contentDescription="Gold coins counter"
-        android:gravity="center_horizontal"/>
+        android:gravity="center_horizontal" />
 
-
-
+    <TextView
+        android:id="@+id/timerText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Chest"
+        android:layout_alignEnd="@+id/Chest"
+        android:layout_alignBottom="@+id/Chest"
+        android:layout_marginStart="0dp"
+        android:gravity="center_horizontal"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:text="TextView" />
 
     <TextView
         android:id="@+id/HintText"
         android:layout_width="match_parent"
         android:layout_height="94dp"
-        android:layout_above="@+id/bottonbanner"
-        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/bottomBar"
         android:layout_marginBottom="1dp"
         android:gravity="center_horizontal"
         android:text="TextView"
@@ -112,6 +124,19 @@
         android:onClick="profilePress"
         android:contentDescription="@string/ProfileAcc"
         android:src="@android:drawable/sym_def_app_icon" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/Hintbutton"
+        android:layout_alignEnd="@+id/Hintbutton"
+        android:layout_alignBottom="@+id/Hintbutton"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center_horizontal"
+        android:text="@string/Hint" />
 
 
 </RelativeLayout>

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
+import android.os.CountDownTimer;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -30,6 +31,8 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.Locale;
+
 
 public class MapActivity extends FragmentActivity implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, LocationListener, OnMapReadyCallback {
 
@@ -46,8 +49,11 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     boolean firstLocation = true;
     Circle circle;
     int index=0;
-    TextView hint;
-    // private MarkerOptions options = new MarkerOptions();
+    TextView hint, timer;
+    private static final long START_TIME_IN_MILLIS = 300000; //5minutes
+    private long mTimeLeftInMilis = START_TIME_IN_MILLIS;
+    private CountDownTimer mCountDownTimer;
+
 
 
     private static final int REQUEST_CODE = 101;
@@ -58,9 +64,13 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
         hint = (TextView) findViewById(R.id.HintText);
+        timer = (TextView) findViewById(R.id.timerText);
         setUpMapIfNeeded();
         setUpTreasureArray();
+        startTimer();
         setUpTreasureChest(index);
+
+
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -76,8 +86,42 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 .setFastestInterval(1*1000); // 1 second, in milliseconds
 
 
+
     }
-        //this sets up the array with the tresure chest locations in an array so we can pull an induvual chest and know where it is.
+
+    private void startTimer() {
+
+        mCountDownTimer = new CountDownTimer(mTimeLeftInMilis, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+                mTimeLeftInMilis = millisUntilFinished;
+                updateTimer();
+            }
+
+            @Override
+            public void onFinish() {
+
+            }
+        }.start();
+
+    }
+    private void updateTimer()
+    {
+        int min = (int) (mTimeLeftInMilis/ 1000)/60;
+        int sec = (int) (mTimeLeftInMilis/1000)%60;
+        String time = String.format(Locale.getDefault(),"%02d:%02d", min,sec);
+        timer.setText(time);
+
+
+    }
+private void resetTimer() {
+        mCountDownTimer.cancel();
+    mTimeLeftInMilis = START_TIME_IN_MILLIS;
+    startTimer();
+
+}
+
+    //this sets up the array with the tresure chest locations in an array so we can pull an induvual chest and know where it is.
     private void setUpTreasureArray() {
         int i=0;
         TreasureChest temp = new TreasureChest();
@@ -133,7 +177,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
 
         chest = array[index];
-
+        resetTimer();
         Log.d(TAG, "setUpTreasureChest: setting u0p new chest number" + index);
 
 
