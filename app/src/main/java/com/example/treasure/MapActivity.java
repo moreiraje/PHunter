@@ -49,7 +49,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     boolean firstLocation = true;
     Circle circle;
     int index=0;
-    TextView hint, timer;
+    TextView hint, timer, coinsText;
+    int coins=0;
     private static final long START_TIME_IN_MILLIS = 300000; //5minutes
     private long mTimeLeftInMilis = START_TIME_IN_MILLIS;
     private CountDownTimer mCountDownTimer;
@@ -65,6 +66,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         setContentView(R.layout.activity_map);
         hint = (TextView) findViewById(R.id.HintText);
         timer = (TextView) findViewById(R.id.timerText);
+        coinsText=(TextView)findViewById(R.id.coinsText);
+        coinsText.setText(String.valueOf(coins));
         setUpMapIfNeeded();
         setUpTreasureArray();
         startTimer();
@@ -272,7 +275,7 @@ public void backPress(View view)
         TextView tester = (TextView)findViewById(R.id.textView);
         tester.setText(location.distanceTo(treasureLocation) +"");
         Log.d(TAG, "checkDistance: distance to tresure =="+ location.distanceTo(treasureLocation) );
-        if(location.distanceTo(treasureLocation)<= 100 ){
+        if(location.distanceTo(treasureLocation)<= 100 ){                                                           //we have found a tresaure chest
 
 
             if(index>=4)        //if weve reched the end of the game
@@ -285,6 +288,9 @@ public void backPress(View view)
             }
 
             else {
+                int bonus = (int)((mTimeLeftInMilis/1000)/1.5); //sec left / 1.5 as bous gold max = 200gold
+                coins=coins+bonus+100;
+                coinsText.setText(String.valueOf(coins));
                 Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
                 toast.show();
                 index++; //go to next index in treasure chest
