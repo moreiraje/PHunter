@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="93dp"
         android:layout_alignBottom="@+id/map"
-        android:layout_marginBottom="0dp"
+        android:layout_marginBottom="-1dp"
         android:background="@color/colorPrimaryDark"
         android:visibility="visible" />
 
@@ -44,32 +44,33 @@
     <ImageButton
         android:id="@+id/Goldcoins"
         android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_height="68dp"
         android:layout_alignTop="@+id/bottomBar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginLeft="10dp"
         android:background="@drawable/coins"
         android:contentDescription="Gold coins counter" />
 
     <ImageButton
         android:id="@+id/backButton"
-        android:layout_width="81dp"
-        android:layout_height="59dp"
+        android:layout_width="59dp"
+        android:layout_height="55dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="4dp"
+
         android:layout_marginTop="12dp"
+        android:layout_marginLeft="5dp"
         android:contentDescription="@string/Back"
         android:onClick="backPress"
-        android:src="?attr/actionModeCloseDrawable" />
+        android:background="@drawable/backarrow"/>
 
 
     <ImageButton
         android:id="@+id/Hintbutton"
         android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_height="68dp"
         android:layout_alignTop="@+id/bottomBar"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/hint"
         android:contentDescription="@string/Hint"
@@ -78,11 +79,12 @@
     <ImageButton
         android:id="@+id/Chest"
         android:layout_width="65dp"
-        android:layout_height="65dp"
+        android:layout_height="68dp"
         android:layout_alignLeft="@+id/imageView"
         android:layout_alignTop="@+id/bottomBar"
         android:layout_marginLeft="-8dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
         android:background="@drawable/chest"
         android:contentDescription="Gold coins counter"
         android:gravity="center_horizontal" />
@@ -115,15 +117,25 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="62dp"
+        android:layout_width="62dp"
+        android:layout_height="65dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="13dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="5dp"
         android:onClick="profilePress"
         android:contentDescription="@string/ProfileAcc"
-        android:src="@android:drawable/sym_def_app_icon" />
+        android:background="@drawable/profilesmall" />
+
+    <ImageView
+        android:id="@+id/applogo"
+        android:layout_width="100dp"
+        android:layout_height="70dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="130dp"
+        android:background="@drawable/logo_color"
+        android:contentDescription="@string/ProfileAcc" />
 
     <TextView
         android:id="@+id/hintConstant"
@@ -132,8 +144,8 @@
         android:layout_alignStart="@+id/Hintbutton"
         android:layout_alignEnd="@+id/Hintbutton"
         android:layout_alignBottom="@+id/Hintbutton"
-        android:layout_marginStart="0dp"
-        android:layout_marginEnd="0dp"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
         android:layout_marginBottom="2dp"
         android:gravity="center_horizontal"
         android:text="@string/Hint" />

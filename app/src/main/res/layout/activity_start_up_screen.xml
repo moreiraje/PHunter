@@ -4,74 +4,98 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/homebackground"
     tools:context=".StartUpScreen">
 
     <ImageView
-        android:id="@+id/MyHunts"
-        android:layout_width="276dp"
-        android:layout_height="138dp"
-        android:layout_alignParentBottom="true"
+        android:id="@+id/applogolarge"
+        android:layout_width="500dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="16dp"
-
+        android:layout_centerVertical="true"
+        android:layout_height="350dp"
         android:contentDescription="@string/MyHunts"
-        app:srcCompat="@android:drawable/editbox_background" />
+        app:srcCompat="@drawable/logo_color" />
 
     <ImageView
-        android:id="@+id/NewHunt"
-        android:layout_width="276dp"
-        android:layout_height="138dp"
-        android:layout_above="@+id/MyHunts"
+        android:id="@+id/newhunt"
+        android:layout_width="400dp"
+        android:layout_height="190dp"
+        android:layout_below="@+id/applogolarge"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-24dp"
-        android:contentDescription="@string/NewHunt"
-        app:srcCompat="@android:drawable/editbox_background" />
+        android:layout_marginTop="25dp"
+
+        android:background="@drawable/button_yellow"
+        />
 
     <ImageView
-        android:id="@+id/Continue"
-        android:layout_width="276dp"
-        android:layout_height="138dp"
-        android:layout_above="@+id/NewHunt"
+        android:id="@+id/continuehunt"
+        android:layout_width="400dp"
+        android:layout_height="190dp"
+        android:layout_below="@+id/newhunt"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-24dp"
-        android:contentDescription="@string/Continue"
-        android:onClick="continueHunt"
-        app:srcCompat="@android:drawable/editbox_background" />
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_yellow" />
+    <ImageView
+        android:id="@+id/MyHunts"
+        android:layout_width="400dp"
+        android:layout_height="190dp"
+        android:layout_below="@+id/continuehunt"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_yellow" />
 
     <TextView
-        android:id="@+id/ContinueText"
-        android:layout_width="276dp"
-        android:layout_height="80dp"
-        android:layout_alignTop="@+id/Continue"
-        android:layout_alignBottom="@+id/Continue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="0dp"
-        android:gravity="center"
-        android:text="@string/Continue"
-        android:textSize="30sp" />
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/newhunt"
+        android:layout_alignTop="@+id/newhunt"
+        android:layout_alignEnd="@+id/newhunt"
+        android:layout_alignBottom="@+id/newhunt"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        android:text= "NEW HUNT"
+        android:textColor="#fff"
+        android:textSize="90sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/rumble"
+        />
 
     <TextView
-        android:id="@+id/textView3"
-        android:layout_width="276dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/ContinueText"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:gravity="center"
-        android:text="@string/NewHunt"
-        android:onClick="newHunt"
-        android:textSize="30sp" />
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/continuehunt"
+        android:layout_alignTop="@+id/continuehunt"
+        android:layout_alignEnd="@+id/continuehunt"
+        android:layout_alignBottom="@+id/continuehunt"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        android:text= "CONTINUE"
+        android:textColor="#fff"
+        android:textSize="90sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/rumble"
 
+        />
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="276dp"
-        android:layout_height="136dp"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_alignStart="@+id/MyHunts"
+        android:layout_alignTop="@+id/MyHunts"
+        android:layout_alignEnd="@+id/MyHunts"
         android:layout_alignBottom="@+id/MyHunts"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="0dp"
-        android:gravity="center"
-        android:onClick="myHunts"
-        android:text="@string/MyHunts"
-        android:textSize="30sp" />
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="70dp"
+        android:text= "MY HUNTS"
+        android:textColor="#fff"
+        android:textSize="90sp"
+        android:textAlignment="center"
+        android:fontFamily="@font/rumble"
+
+        />
 </RelativeLayout>
