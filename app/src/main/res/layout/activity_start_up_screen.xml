@@ -64,6 +64,7 @@
         android:layout_alignBottom="@+id/continuehunt"
         android:layout_alignEnd="@+id/continuehunt"
         android:layout_alignStart="@+id/continuehunt"
+        android:onClick="continueHunt"
         android:layout_alignTop="@+id/continuehunt"
         android:textColor="#ffff"
         android:textAlignment="center"
