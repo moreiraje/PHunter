@@ -7,4 +7,8 @@
     <string name="ProfileAcc">Profile</string>
     <string name="NewHunt">New Hunt</string>
     <string name="MyHunts">My Hunts</string>
+    <string name="GoldEarnedAmount">100</string>
+    <string name="GoldEarned">Gold Found</string>
+    <string name="GoldBonus">Bonus Gold</string>
+    <string name="Collect">Collect Gold</string>
 </resources>

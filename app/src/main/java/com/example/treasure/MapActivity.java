@@ -355,6 +355,9 @@ public void backPress(View view)
                 circle.setCenter(chest.getRingCoordinates());
                 circle.setRadius(chest.radius);
                 hint.setText(chest.hint);
+                Intent showPopUp = new Intent(this, popUp.class);
+                showPopUp.putExtra("bonus",bonus);
+                startActivity(showPopUp);
             }
 
         }
