@@ -15,10 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".popUp"
-            android:theme="@style/AppTheme.CustomPopUp">
-        </activity>
-        <!-- android:background = "@color/colorPrimaryDark"> -->
+        <activity android:name=".EndGamePopUp"
+            android:theme="@style/AppTheme.CustomPopUp"></activity>
+        <activity
+            android:name=".popUp"
+            android:theme="@style/AppTheme.CustomPopUp"></activity> <!-- android:background = "@color/colorPrimaryDark"> -->
         <activity android:name=".MyHunts" />
         <activity android:name=".NewGame" />
         <activity android:name=".ProfileScreen" />

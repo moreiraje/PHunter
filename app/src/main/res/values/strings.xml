@@ -11,4 +11,6 @@
     <string name="GoldEarned">Gold Found</string>
     <string name="GoldBonus">Bonus Gold</string>
     <string name="Collect">Collect Gold</string>
+    <string name="TotalGold">Total Gold</string>
+    <string name="Finish">Finish</string>
 </resources>
