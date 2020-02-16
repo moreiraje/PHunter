@@ -54,6 +54,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     private static final long START_TIME_IN_MILLIS = 300000; //5minutes
     private long mTimeLeftInMilis = START_TIME_IN_MILLIS;
     private CountDownTimer mCountDownTimer;
+    boolean done=false;
 
 
 
@@ -227,7 +228,7 @@ private void resetTimer() {
         temp5.setRingLongitude( -77.528775);
         temp5.setRadius(50);
         temp5.setHint("hint5");
-        array[i] = temp5;
+        array[i] = temp;
         i++;
 
 
@@ -324,50 +325,56 @@ public void backPress(View view)
 
     //this method checks the distance from the current location to the location of the next chest
     private void checkDistance(Location location) {
-        treasureLocation.setLatitude(chest.getLatitude());        //these are just for testing near me
-        Log.d(TAG, "checkDistance: lat--"+ chest.getLatitude());
-        treasureLocation.setLongitude( chest.getLongitude());
-        Log.d(TAG, "checkDistance: long---"+ chest.getLongitude());
-        Log.d(TAG, "checkDistance: curent chest locaiton " + treasureLocation.toString());
-        TextView tester = (TextView)findViewById(R.id.textView);
-        tester.setText(location.distanceTo(treasureLocation) +"");
-        Log.d(TAG, "checkDistance: distance to tresure =="+ location.distanceTo(treasureLocation) );
-        if(location.distanceTo(treasureLocation)<= 30 ){                                                           //we have found a tresaure chest in meters
-            int bonus = (int)((mTimeLeftInMilis/1000)/1.5); //sec left / 1.5 as bous gold max = 200gold
-            coins=coins+bonus+100;
+        if(!done) {
+            treasureLocation.setLatitude(chest.getLatitude());        //these are just for testing near me
+            Log.d(TAG, "checkDistance: lat--" + chest.getLatitude());
+            treasureLocation.setLongitude(chest.getLongitude());
+            Log.d(TAG, "checkDistance: long---" + chest.getLongitude());
+            Log.d(TAG, "checkDistance: curent chest locaiton " + treasureLocation.toString());
+            TextView tester = (TextView) findViewById(R.id.textView);
+            tester.setText(location.distanceTo(treasureLocation) + "");
+            Log.d(TAG, "checkDistance: distance to tresure ==" + location.distanceTo(treasureLocation));
+            if (location.distanceTo(treasureLocation) <= 30) {                                                           //we have found a tresaure chest in meters
+                int bonus = (int) ((mTimeLeftInMilis / 1000) / 1.5); //sec left / 1.5 as bous gold max = 200gold
+                coins = coins + bonus + 100;
 
-            if(index>=4)        //if weve reched the end of the game
-            {
-               // Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
-              //  toast.show();
-                index++; //go to next index in treasure chest
-                Intent showFinalPopUp = new Intent(this, EndGamePopUp.class);   //this shows the new pop up with amomunt of bonus gold
-                showFinalPopUp.putExtra("bonus",bonus);
-                showFinalPopUp.putExtra("total",coins);
-                startActivity(showFinalPopUp);
-                finish();
-            }
+                if (index >= 4)        //if weve reched the end of the game
+                {
+                    done=true;
+                    // Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
+                    //  toast.show();
+                   // index++; //go to next index in treasure chest
+                    Intent showFinalPopUp = new Intent(this, EndGamePopUp.class);   //this shows the new pop up with amomunt of bonus gold
+                    showFinalPopUp.putExtra("bonus", bonus);
+                    showFinalPopUp.putExtra("total", coins);
+                    startActivityForResult(showFinalPopUp,1);
+                   // startActivity(showFinalPopUp);
+                   // finish();
+                } else {
 
-            else {
+                    coinsText.setText(String.valueOf(coins));
+                    //  Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
+                    //   toast.show();
+                    index++; //go to next index in treasure chest
+                    setUpTreasureChest(index);
+                    circle.setCenter(chest.getRingCoordinates());
+                    circle.setRadius(chest.radius);
+                    hint.setText(chest.hint);
+                    Intent showPopUp = new Intent(this, popUp.class);   //this shows the new pop up with amomunt of bonus gold
+                    showPopUp.putExtra("bonus", bonus);
+                    startActivity(showPopUp);
+                }
 
-                coinsText.setText(String.valueOf(coins));
-              //  Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
-             //   toast.show();
-                index++; //go to next index in treasure chest
-                setUpTreasureChest(index);
-                circle.setCenter(chest.getRingCoordinates());
-                circle.setRadius(chest.radius);
-                hint.setText(chest.hint);
-                Intent showPopUp = new Intent(this, popUp.class);   //this shows the new pop up with amomunt of bonus gold
-                showPopUp.putExtra("bonus",bonus);
-                startActivity(showPopUp);
             }
 
         }
-
-
     }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        finish();
+    }
 
     //if connection is somehow lost
     @Override
