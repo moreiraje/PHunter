@@ -64,7 +64,7 @@
     android:text="JAVIER"
     android:textAlignment="center"
     android:textSize="40sp"
-    android:textColor="#ffff"/>
+    android:textColor="#fff"/>
 
     <TextView
         android:id="@+id/statstitle"
