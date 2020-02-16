@@ -9,38 +9,37 @@
 
     <ImageView
         android:id="@+id/applogolarge"
-        android:layout_width="250dp"
-        android:layout_height="120dp"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
+        android:layout_width="198dp"
+        android:layout_height="111dp"
+        android:layout_centerInParent="true"
         android:contentDescription="@string/MyHunts"
         app:srcCompat="@drawable/logo_color" />
 
     <ImageView
         android:id="@+id/continuehunt"
         android:layout_width="250dp"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/applogolarge"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/button_yellow" />
     <ImageView
         android:id="@+id/newhunt"
         android:layout_width="250dp"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/continuehunt"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
         android:background="@drawable/button_yellow" />
+
     <ImageView
         android:id="@+id/myhunts"
         android:layout_width="250dp"
-        android:layout_height="90dp"
+        android:layout_height="80dp"
         android:layout_below="@+id/newhunt"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="10dp"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/button_yellow" />
 
     <TextView
@@ -61,25 +60,25 @@
         android:id="@+id/continuetext"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_alignBottom="@+id/continuehunt"
-        android:layout_alignEnd="@+id/continuehunt"
         android:layout_alignStart="@+id/continuehunt"
-        android:onClick="continueHunt"
         android:layout_alignTop="@+id/continuehunt"
-        android:textColor="#ffff"
-        android:textAlignment="center"
+        android:layout_alignEnd="@+id/continuehunt"
+        android:layout_alignBottom="@+id/continuehunt"
         android:fontFamily="@font/rumble"
-        android:textSize="60sp"
-        android:text="CONTINUE" />
+        android:onClick="continueHunt"
+        android:text="CONTINUE"
+        android:textAlignment="center"
+        android:textColor="#ffff"
+        android:textSize="60sp" />
 
     <TextView
         android:id="@+id/myhuntstext"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        android:layout_alignBottom="@+id/myhunts"
         android:layout_alignEnd="@+id/myhunts"
         android:layout_alignStart="@+id/myhunts"
         android:layout_alignTop="@+id/myhunts"
+        android:layout_marginTop="0dp"
         android:textColor="#ffff"
         android:textAlignment="center"
         android:fontFamily="@font/rumble"
