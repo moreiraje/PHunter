@@ -128,7 +128,7 @@ private void resetTimer() {
     //this sets up the array with the tresure chest locations in an array so we can pull an induvual chest and know where it is.
     private void setUpTreasureArray() {
         int i=0;
-        TreasureChest temp = new TreasureChest();
+        /*TreasureChest temp = new TreasureChest();
         temp.setLatitude(37.375010);
         temp.setLongitude( -77.529626);
         temp.setRingLatitude(37.374334);
@@ -137,7 +137,9 @@ private void resetTimer() {
         temp.setHint("hint1");
         array[i] = temp;
 
-        /* THE COMPASS
+         */
+
+       // The compass
         TreasureChest temp = new TreasureChest();
         temp.setLatitude(37.548135);
         temp.setLongitude( -77.453206);
@@ -149,10 +151,10 @@ private void resetTimer() {
                 "This item that will help guide the way\n" +
                 "By pointing north, south, west and east");
         array[i] = temp;
-        */
+
 
         i++;
-        TreasureChest temp2 = new TreasureChest();
+        /*TreasureChest temp2 = new TreasureChest();
         temp2.setLatitude(37.375120);
         temp2.setLongitude( -77.528674);
         temp2.setRingLatitude(37.375054);
@@ -161,7 +163,9 @@ private void resetTimer() {
         temp2.setHint("hint2");
         array[i] = temp2;
 
-        /* MONROE PARK
+         */
+
+        //MONROE PARK
         TreasureChest temp2 = new TreasureChest();
         temp2.setLatitude(37.546779);
         temp2.setLongitude( -77.450401);
@@ -173,9 +177,10 @@ private void resetTimer() {
                 "Find this place if you want a lark\n" +
                 "The answer you seek is in the Monroe...");
         array[i] = temp2;
-        */
+
         i++;
-        TreasureChest temp3 = new TreasureChest();
+
+        /*TreasureChest temp3 = new TreasureChest();
         temp3.setLatitude(37.375367);
         temp3.setLongitude( -77.529086);
         temp3.setRingLatitude(37.375502);
@@ -183,8 +188,8 @@ private void resetTimer() {
         temp3.setRadius(50);
         temp3.setHint("hint3");
         array[i] = temp3;
-
-        /* COMMONS
+*/
+        // COMMONS
         TreasureChest temp3 = new TreasureChest();
         temp3.setLatitude(37.546555);
         temp3.setLongitude(-77.453596);
@@ -194,9 +199,10 @@ private void resetTimer() {
         temp3.setHint("This is the place at vcu where you go to get some food." +
                 "Use your commons ense");
         array[i] = temp3;
-        */
+
         i++;
-        TreasureChest temp4 = new TreasureChest();
+
+        /*TreasureChest temp4 = new TreasureChest();
         temp4.setLatitude(37.375128);
         temp4.setLongitude( -77.529200);
         temp4.setRingLatitude(37.375055);
@@ -204,8 +210,8 @@ private void resetTimer() {
         temp4.setRadius(50);
         temp4.setHint("hint4");
         array[i] = temp4;
-
-        /* SOCCER FIELD
+*/
+        //SOCCER FIELD
         TreasureChest temp4 = new TreasureChest();
         temp4.setLatitude(37.544009);
         temp4.setLongitude(-77.455157);
@@ -219,9 +225,10 @@ private void resetTimer() {
                 "Everywhere is green; where a game can be seen. \n" +
                 "Where the players are all, trying to get the ball.");
         array[i] = temp4;
-        */
+
         i++;
-        TreasureChest temp5 = new TreasureChest();
+
+        /*TreasureChest temp5 = new TreasureChest();
         temp5.setLatitude(37.375317);
         temp5.setLongitude(  -77.528775);
         temp5.setRingLatitude(37.375317);
@@ -229,6 +236,8 @@ private void resetTimer() {
         temp5.setRadius(50);
         temp5.setHint("hint5");
         array[i] = temp;
+
+         */
         i++;
 
 
