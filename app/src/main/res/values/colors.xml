@@ -6,5 +6,5 @@
     <color name="colorAccent">#D81B60</color>
     <color name="circleFill">#33B9180C</color>
     <color name="black_overlay">#66000000</color>
-
+    <color name="hint_color">#B7D3A643</color>
 </resources>

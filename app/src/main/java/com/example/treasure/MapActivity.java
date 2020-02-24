@@ -51,7 +51,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     int index=0;
     TextView hint, timer, coinsText;
     int coins=0;
-    private static final long START_TIME_IN_MILLIS = 300000; //5minutes
+    private static final long START_TIME_IN_MILLIS = 480000; //8minutes
     private long mTimeLeftInMilis = START_TIME_IN_MILLIS;
     private CountDownTimer mCountDownTimer;
     boolean done=false;
@@ -104,6 +104,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
             @Override
             public void onFinish() {
+                timer.setText("00:00");
 
             }
         }.start();
@@ -262,15 +263,18 @@ public void backPress(View view)
 {
     onBackPressed();
 }
+
 //method toggles the hint text
-    public void showHint(View View){
+public void showHint(View View){
         TextView text =  findViewById(R.id.HintText);
         //check to see if its visible or not
         if(text.getVisibility() == View.VISIBLE)
         {
+            text.setBackgroundColor(Color.TRANSPARENT);
             text.setVisibility(View.INVISIBLE);
         }
         else {
+            text.setBackgroundColor(getResources().getColor(R.color.hint_color));
             text.setVisibility(View.VISIBLE);
         }
 
@@ -428,7 +432,7 @@ public void backPress(View view)
                     .radius(chest.radius)
                     .strokeColor(Color.TRANSPARENT)
                     .fillColor(getApplicationContext().getResources().getColor(R.color.circleFill)));
-
+            hint.setText(chest.hint);
         }
 
 
