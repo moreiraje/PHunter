@@ -27,7 +27,7 @@ public class StartUpScreen extends AppCompatActivity {
         startActivity(startHunt);
     }
 
-
+//TODO add coins to sshared as weell as the time in milisecoinds
     public void newHunt(View view){
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = pref.edit();
