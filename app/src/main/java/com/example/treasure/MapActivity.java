@@ -1,11 +1,14 @@
 package com.example.treasure;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.CountDownTimer;
+import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.ActivityCompat;
@@ -69,6 +72,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         timer = (TextView) findViewById(R.id.timerText);
         coinsText=(TextView)findViewById(R.id.coinsText);
         coinsText.setText(String.valueOf(coins));
+        chooseIndex();
         setUpMapIfNeeded();
         setUpTreasureArray();
         startTimer();
@@ -91,6 +95,12 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
 
 
 
+    }
+
+    private void chooseIndex() {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        index = pref.getInt("savedIndex", 0);
+        Log.d(TAG, "chooseIndex---------------->: " + index);
     }
 
     private void startTimer() {
@@ -229,16 +239,16 @@ private void resetTimer() {
 
         i++;
 
-        /*TreasureChest temp5 = new TreasureChest();
+        TreasureChest temp5 = new TreasureChest();
         temp5.setLatitude(37.375317);
         temp5.setLongitude(  -77.528775);
         temp5.setRingLatitude(37.375317);
         temp5.setRingLongitude( -77.528775);
         temp5.setRadius(50);
         temp5.setHint("hint5");
-        array[i] = temp;
+        array[i] = temp5;
 
-         */
+
         i++;
 
 
@@ -261,6 +271,11 @@ private void resetTimer() {
 }
 public void backPress(View view)
 {
+    SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+    SharedPreferences.Editor editor = pref.edit();
+    editor.putInt("savedIndex", index);
+    editor.apply();
+    Log.d(TAG, "backPress: we stored index-->" + index );
     onBackPressed();
 }
 
@@ -347,7 +362,7 @@ public void showHint(View View){
             TextView tester = (TextView) findViewById(R.id.textView);
             tester.setText(location.distanceTo(treasureLocation) + "");
             Log.d(TAG, "checkDistance: distance to tresure ==" + location.distanceTo(treasureLocation));
-            if (location.distanceTo(treasureLocation) <= 30) {                                                           //we have found a tresaure chest in meters
+            if (location.distanceTo(treasureLocation) >= 2000) {                                                           //we have found a tresaure chest in meters
                 int bonus = (int) ((mTimeLeftInMilis / 1000) / 1.5); //sec left / 1.5 as bous gold max = 200gold
                 coins = coins + bonus + 100;
 

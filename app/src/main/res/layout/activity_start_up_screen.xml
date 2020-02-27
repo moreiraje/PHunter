@@ -53,6 +53,7 @@
         android:textColor="#ffff"
         android:textAlignment="center"
         android:fontFamily="@font/rumble"
+        android:onClick="newHunt"
         android:textSize="60sp"
         android:text="NEW HUNT" />
 
