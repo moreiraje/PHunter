@@ -75,6 +75,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         chooseIndex();
         setUpMapIfNeeded();
         setUpTreasureArray();
+        chooseTime();
         startTimer();
         setUpTreasureChest(index);
 
@@ -100,7 +101,12 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     private void chooseIndex() {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         index = pref.getInt("savedIndex", 0);
-        Log.d(TAG, "chooseIndex---------------->: " + index);
+        //Log.d(TAG, "chooseIndex---------------->: " + index);
+    }
+    private void chooseTime() {
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        mTimeLeftInMilis = pref.getLong("savedTime", START_TIME_IN_MILLIS);
+        Log.d(TAG, "choosetime---------------->: " + mTimeLeftInMilis);
     }
 
     private void startTimer() {
@@ -258,7 +264,7 @@ private void resetTimer() {
 
 
         chest = array[index];
-        resetTimer();
+        //resetTimer();
         Log.d(TAG, "setUpTreasureChest: setting u0p new chest number" + index);
 
 
@@ -274,8 +280,9 @@ public void backPress(View view)
     SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
     SharedPreferences.Editor editor = pref.edit();
     editor.putInt("savedIndex", index);
+    editor.putLong("savedTime", mTimeLeftInMilis);
     editor.apply();
-    Log.d(TAG, "backPress: we stored index-->" + index );
+    Log.d(TAG, "backPress: we stored time-->" + mTimeLeftInMilis );
     onBackPressed();
 }
 
@@ -425,6 +432,12 @@ public void showHint(View View){
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient, this);
             mGoogleApiClient.disconnect();
         }
+        SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putInt("savedIndex", index);
+        editor.putLong("savedTime", mTimeLeftInMilis);
+        editor.apply();
+
     }
 
     @Override
