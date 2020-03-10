@@ -32,6 +32,8 @@ public class StartUpScreen extends AppCompatActivity {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt("savedIndex", 0);
+        editor.putInt("savedTimer", 480000);
+        editor.putInt("saveCoins",0);
         editor.apply();
         Intent newHunt = new Intent(this, MapActivity.class);
         startActivity(newHunt);
