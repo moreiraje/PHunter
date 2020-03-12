@@ -98,6 +98,7 @@
         android:layout_alignBottom="@+id/Chest"
         android:layout_marginStart="0dp"
         android:gravity="center_horizontal"
+        android:textColor="#fff"
         android:layout_marginEnd="0dp"
         android:layout_marginBottom="2dp"
         android:layout_weight="1"
@@ -111,6 +112,7 @@
         android:layout_marginBottom="0dp"
         android:gravity="center_horizontal"
         android:text="TextView"
+        android:textColor="#fff"
         android:textSize="20sp"
         android:visibility="invisible"
         tools:text="@string/Hint" />
@@ -146,6 +148,7 @@
         android:layout_alignBottom="@+id/Hintbutton"
         android:layout_marginStart="1dp"
         android:layout_marginEnd="1dp"
+        android:textColor="#fff"
         android:layout_marginBottom="2dp"
         android:gravity="center_horizontal"
         android:text="@string/Hint" />
@@ -157,6 +160,7 @@
         android:layout_alignStart="@+id/Goldcoins"
         android:layout_alignEnd="@+id/Goldcoins"
         android:layout_alignBottom="@+id/Goldcoins"
+        android:textColor="#fff"
         android:gravity="center_horizontal"
         android:layout_marginStart="0dp"
         android:layout_marginEnd="0dp"
