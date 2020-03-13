@@ -20,7 +20,7 @@ public class popUp extends Activity {
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int)(width*.9),(int)(height*.6));
+        getWindow().setLayout(width,height);
         TextView bonusText = (TextView) findViewById(R.id.goldBonusAmount);
         bonusText.setText(bonus+"");
 

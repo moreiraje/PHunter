@@ -20,7 +20,7 @@ public class EndGamePopUp extends AppCompatActivity {
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int)(width*.9),(int)(height*.6));
+        getWindow().setLayout(width,height);
         TextView bonusText = (TextView) findViewById(R.id.goldBonusAmount);
         TextView totalText = (TextView) findViewById(R.id.totalGoldAmount);
         bonusText.setText(bonus+"");

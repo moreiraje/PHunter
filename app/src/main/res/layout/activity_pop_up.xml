@@ -4,8 +4,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="350dp"
-    android:layout_height="400dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
     android:background="@color/colorPrimaryDarkest"
     tools:context=".popUp">
@@ -13,21 +13,21 @@
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="match_parent"
-        android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
         android:layout_height="80dp"
         android:layout_below="@+id/imageView4"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
         android:src="@drawable/openedchests" />
 
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
         android:layout_height="80dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="81dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginRight="20dp"
         android:src="@drawable/openedchests" />
 
     <TextView
@@ -39,9 +39,9 @@
         android:layout_marginStart="160dp"
         android:layout_marginBottom="11dp"
         android:fontFamily="@font/rumble"
+        android:text="@string/GoldEarned"
         android:textColor="#fff"
-        android:textSize="28dp"
-        android:text="@string/GoldEarned" />
+        android:textSize="28dp" />
 
     <TextView
         android:id="@+id/goldBonus"
@@ -49,12 +49,12 @@
         android:layout_height="62dp"
         android:layout_alignBottom="@+id/imageView3"
         android:layout_alignParentStart="true"
-        android:fontFamily="@font/rumble"
-        android:textSize="28dp"
-        android:textColor="#fff"
         android:layout_marginStart="160dp"
         android:layout_marginBottom="13dp"
-        android:text="@string/GoldBonus" />
+        android:fontFamily="@font/rumble"
+        android:text="@string/GoldBonus"
+        android:textColor="#fff"
+        android:textSize="28dp" />
 
     <TextView
         android:id="@+id/goldEarnedAmount"
@@ -62,8 +62,8 @@
         android:layout_height="41dp"
         android:layout_alignBottom="@+id/imageView4"
         android:layout_marginStart="200dp"
-        android:fontFamily="@font/rumble"
         android:layout_marginBottom="5dp"
+        android:fontFamily="@font/rumble"
         android:text="@string/GoldEarnedAmount"
         android:textColor="#fff"
         android:textSize="28dp" />
@@ -74,10 +74,10 @@
         android:layout_height="41dp"
         android:layout_alignBottom="@+id/imageView3"
         android:layout_marginStart="200dp"
-        android:fontFamily="@font/rumble"
-        android:textColor="#fff"
         android:layout_marginBottom="5dp"
+        android:fontFamily="@font/rumble"
         android:text="@string/GoldEarnedAmount"
+        android:textColor="#fff"
         android:textSize="28dp" />
 
     <ImageView
@@ -86,18 +86,18 @@
         android:layout_height="75dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="1dp"
-        android:src="@drawable/button_yellow"
-        android:onClick="backPress"/>
+        android:onClick="backPress"
+        android:src="@drawable/button_yellow" />
 
     <TextView
         android:id="@+id/rewards"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:text="REWARDS"
         android:fontFamily="@font/rumble"
-        android:textSize="45dp"
+        android:text="REWARDS"
         android:textAlignment="center"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:textSize="45dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -110,12 +110,42 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:layout_marginEnd="0dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="-12dp"
         android:fontFamily="@font/rumble"
         android:gravity="center"
-        android:textSize="35dp"
+        android:text="@string/Collect"
         android:textColor="#fff"
+        android:textSize="35dp" />
 
-        android:text="@string/Collect" />
+    <TextView
+    android:id="@+id/fun_fact"
+    android:layout_alignStart="@id/imageView4"
+    android:layout_alignEnd="@id/imageView4"
+    android:layout_height="50dp"
+    android:layout_width="wrap_content"
+    android:fontFamily="@font/rumble"
+    android:text="DID YOU KNOW?"
+    android:layout_alignTop="@id/imageView3"
+    android:layout_marginTop="85dp"
+    android:textAlignment="center"
+    android:textColor="#fff"
+    android:textSize="45dp" />
+
+    <TextView
+        android:id="@+id/fun_fact_text"
+        android:layout_alignStart="@id/imageView4"
+        android:layout_alignEnd="@id/imageView4"
+        android:layout_height="249dp"
+        android:layout_width="wrap_content"
+        android:fontFamily="@font/rumble"
+        android:text="PLACE HOLDER DAKJDKLAJDKSAJDKAJKSDJKALDJASJDLASJDLKSJDKSAJKDALDJKAJDALSJDLASJK
+        AKJDAKSJKDJAKLJDKALJDKASJDKLAJDKLSAJLKDJSAKJDKASDJKLAJDKLASJDKAJSKLDJASKLDJLAKSDJLKASDLKASJD
+        AKLJDAKLJDAJKLDJAKLDJLKAJDLKAJDKLAJKDJAKLDJKLAJDLAJDLKADJLKAJDLKAJDLKAJDLKAJDLKAJKLDALKJDAJJ
+        DKAKLAJAJDKLAJKDJADJKLAJDKLAJDLKAJDLKAJKLDJALJDLKAJDLKAJLKAJDLKAJLKAJLJADLKAJDKLAKLAJDLJALDJ"
+        android:layout_alignTop="@id/fun_fact"
+        android:layout_marginTop="50dp"
+        android:textAlignment ="center"
+        android:textColor="#fff"
+        android:textSize="20dp" />
 
 </RelativeLayout>
