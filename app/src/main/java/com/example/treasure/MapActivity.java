@@ -54,6 +54,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     int index = 0;
     TextView hint, timer, coinsText;
     int coins = 0;
+    int statsCoins,statsChests;
     private static final long START_TIME_IN_MILLIS = 480000; //8minutes
     private long mTimeLeftInMilis = START_TIME_IN_MILLIS;
     private CountDownTimer mCountDownTimer;
@@ -72,6 +73,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         coinsText = (TextView) findViewById(R.id.coinsText);
         chooseCoins();
         coinsText.setText(String.valueOf(coins));
+        loadStats();
         chooseIndex();
         setUpMapIfNeeded();
         setUpTreasureArray();
@@ -93,6 +95,13 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 .setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY)
                 .setInterval(10 * 1000)        // 10 seconds, in milliseconds
                 .setFastestInterval(1 * 1000); // 1 second, in milliseconds
+
+
+    }
+
+    private void loadStats() { SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+        statsCoins = pref.getInt("statsCoins", 0);
+        statsChests=pref.getInt("statsChests",0);
 
 
     }
@@ -385,9 +394,16 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 int bonus = (int) ((mTimeLeftInMilis / 1000) / 1.5); //sec left / 1.5 as bous gold max = 200gold
                 coins = coins + bonus + 100;
 
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
+                SharedPreferences.Editor editor = pref.edit();
+                editor.putInt("statsCoins", statsCoins+coins);
+                editor.putInt("statsChests", ++statsChests);
+                editor.apply();
+
                 if (index >= 4)        //if weve reched the end of the game
                 {
                     done = true;
+                    coinsText.setText(String.valueOf(coins));
                     // Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
                     //  toast.show();
                     // index++; //go to next index in treasure chest
