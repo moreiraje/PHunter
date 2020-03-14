@@ -9,6 +9,7 @@ public class TreasureChest {
     double ringLongitude;
     String hint = "";
     double radius;
+    String funFact ="";
 
 
 
@@ -71,6 +72,14 @@ public LatLng getRingCoordinates()
 
     public String getHint() {
         return hint;
+    }
+
+    public void setFunFact(String funFact) {
+        this.funFact = funFact;
+    }
+
+    public String getFunFact() {
+        return funFact;
     }
 }
 

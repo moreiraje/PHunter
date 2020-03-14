@@ -184,6 +184,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "To find your way you’ll need at least\n" +
                 "This item that will help guide the way\n" +
                 "By pointing north, south, west and east");
+        temp.setFunFact("tester");                              //TODO this is where funfact is called do this for the rest of the chests
         array[i] = temp;
 
 
