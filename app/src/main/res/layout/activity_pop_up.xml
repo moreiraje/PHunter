@@ -94,7 +94,7 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:fontFamily="@font/rumble"
-        android:text="REWARDS"
+        android:text="CHEST REWARDS"
         android:textAlignment="center"
         android:textColor="#fff"
         android:textSize="45dp" />

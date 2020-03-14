@@ -7,23 +7,34 @@
     android:background="@drawable/homebackground"
     tools:context=".StartUpScreen">
 
+    <ImageButton
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/info"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="5dp"
+        android:onClick="toCredits"
+
+        />
+
     <ImageView
         android:id="@+id/applogolarge"
         android:layout_width="198dp"
         android:layout_height="111dp"
-        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/vculogo"
+        android:layout_marginTop="-15dp"
+        android:layout_marginBottom="10dp"
         android:contentDescription="@string/MyHunts"
         app:srcCompat="@drawable/logo_color" />
+
     <ImageView
         android:id="@+id/vculogo"
-        android:layout_width="100dp"
-        android:layout_height="50dp"
+        android:layout_width="165dp"
+        android:layout_height="90dp"
         android:contentDescription="VCUlogo"
-        android:layout_marginTop="-35dp"
         android:background="@drawable/vculogo"
-        android:layout_centerHorizontal="true"
-        android:layout_alignTop="@id/applogolarge"
-
+        android:layout_centerInParent="true"
         />
 
     <ImageView
@@ -41,16 +52,6 @@
         android:layout_below="@+id/continuehunt"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="0dp"
-        android:background="@drawable/button_yellow" />
-
-    <ImageView
-        android:id="@+id/myhunts"
-        android:layout_width="250dp"
-        android:layout_height="80dp"
-        android:layout_below="@+id/newhunt"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="0dp"
-        android:layout_marginBottom="20dp"
         android:background="@drawable/button_yellow" />
 
     <TextView
@@ -83,18 +84,6 @@
         android:textColor="#ffff"
         android:textSize="60sp" />
 
-    <TextView
-        android:id="@+id/myhuntstext"
-        android:layout_width="200dp"
-        android:layout_height="60dp"
-        android:layout_alignEnd="@+id/myhunts"
-        android:layout_alignStart="@+id/myhunts"
-        android:layout_alignTop="@+id/myhunts"
-        android:layout_marginTop="0dp"
-        android:textColor="#ffff"
-        android:textAlignment="center"
-        android:fontFamily="@font/rumble"
-        android:textSize="60sp"
-        android:text="MY HUNTS" />
+
 
 </RelativeLayout>
