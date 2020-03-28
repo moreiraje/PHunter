@@ -17,12 +17,15 @@ public class popUp extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         Bundle bundle = getIntent().getExtras();
         int bonus = bundle.getInt("bonus");
+        String fact = bundle.getString("fact");
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
         getWindow().setLayout(width,height);
         TextView bonusText = (TextView) findViewById(R.id.goldBonusAmount);
         bonusText.setText(bonus+"");
+        TextView funFact = (TextView) findViewById(R.id.fun_fact_text);
+        funFact.setText(fact);
 
     }
 

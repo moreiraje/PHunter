@@ -39,6 +39,7 @@
         android:layout_height="108dp"
         android:layout_below="@+id/backButton"
         android:layout_marginTop="2dp"
+        android:visibility="invisible"
         android:text="TextView" />
 
     <ImageButton

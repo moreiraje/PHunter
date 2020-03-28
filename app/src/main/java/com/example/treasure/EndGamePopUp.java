@@ -17,6 +17,7 @@ public class EndGamePopUp extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
         int bonus = bundle.getInt("bonus");
         int total = bundle.getInt("total");
+        String fact = bundle.getString("fact");
 
         int width = dm.widthPixels;
         int height = dm.heightPixels;
@@ -25,6 +26,8 @@ public class EndGamePopUp extends AppCompatActivity {
         TextView totalText = (TextView) findViewById(R.id.totalGoldAmount);
         bonusText.setText(bonus+"");
         totalText.setText(total+"");
+        TextView funFact = (TextView) findViewById(R.id.fun_fact_text);
+        funFact.setText(fact);
 
 
     }

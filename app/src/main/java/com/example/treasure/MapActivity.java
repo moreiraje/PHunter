@@ -53,6 +53,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     Circle circle;
     int index = 0;
     TextView hint, timer, coinsText;
+    TextView distanceText;
+
     int coins = 0;
     int statsCoins,statsChests;
     private static final long START_TIME_IN_MILLIS = 480000; //8minutes
@@ -71,6 +73,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         hint = (TextView) findViewById(R.id.HintText);
         timer = (TextView) findViewById(R.id.timerText);
         coinsText = (TextView) findViewById(R.id.coinsText);
+        distanceText = (TextView) findViewById(R.id.textView);
         chooseCoins();
         coinsText.setText(String.valueOf(coins));
         loadStats();
@@ -81,7 +84,8 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         startTimer();
         chest = array[index];
         // setUpTreasureChest(index);
-
+        if (index >= 4)
+            done = true;
 
         mGoogleApiClient = new GoogleApiClient.Builder(this)
                 .addConnectionCallbacks(this)
@@ -136,6 +140,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
             @Override
             public void onFinish() {
                 timer.setText("00:00");
+                showDistance();
 
             }
         }.start();
@@ -211,6 +216,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "The children play and we can talk\n" +
                 "Find this place if you want a lark\n" +
                 "The answer you seek is in the Monroe...");
+        temp2.setFunFact("tester2");
         array[i] = temp2;
 
         i++;
@@ -233,6 +239,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp3.setRadius(150);
         temp3.setHint("This is the place at vcu where you go to get some food." +
                 "Use your commons ense");
+        temp3.setFunFact("tester3");
         array[i] = temp3;
 
         i++;
@@ -259,7 +266,9 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "where you can wear cleats, where you have to bring seats. \n" +
                 "Everywhere is green; where a game can be seen. \n" +
                 "Where the players are all, trying to get the ball.");
+        temp4.setFunFact("tester4");
         array[i] = temp4;
+
 
         i++;
 
@@ -270,6 +279,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp5.setRingLongitude(-77.528775);
         temp5.setRadius(50);
         temp5.setHint("hint5");
+        temp5.setFunFact("tester5");
         array[i] = temp5;
 
 
@@ -309,6 +319,12 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     public void onBackPressed() {
         saveGame();
         finish();
+    }
+    public void showDistance() {
+        distanceText.setVisibility(View.VISIBLE);
+    }
+    public void hideDistance() {
+        distanceText.setVisibility(View.INVISIBLE);
     }
 
     //method toggles the hint text
@@ -388,13 +404,12 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
             treasureLocation.setLongitude(chest.getLongitude());
             Log.d(TAG, "checkDistance: long---" + chest.getLongitude());
             Log.d(TAG, "checkDistance: curent chest locaiton " + treasureLocation.toString());
-            TextView tester = (TextView) findViewById(R.id.textView);
-            tester.setText(location.distanceTo(treasureLocation) + "");
+            distanceText.setText("Distance to Chest =" +location.distanceTo(treasureLocation) + "");
             Log.d(TAG, "checkDistance: distance to tresure ==" + location.distanceTo(treasureLocation));
-            if (location.distanceTo(treasureLocation) >= 2000) {                                                           //we have found a tresaure chest in meters
+            if (location.distanceTo(treasureLocation) >= 20) {                                                           //we have found a tresaure chest in meters
                 int bonus = (int) ((mTimeLeftInMilis / 1000) / 1.5); //sec left / 1.5 as bous gold max = 200gold
                 coins = coins + bonus + 100;
-
+                hideDistance();
                 SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(this);
                 SharedPreferences.Editor editor = pref.edit();
                 editor.putInt("statsCoins", statsCoins+coins);
@@ -411,6 +426,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                     Intent showFinalPopUp = new Intent(this, EndGamePopUp.class);   //this shows the new pop up with amomunt of bonus gold
                     showFinalPopUp.putExtra("bonus", bonus);
                     showFinalPopUp.putExtra("total", coins);
+                    showFinalPopUp.putExtra("fact", chest.funFact);
                     startActivityForResult(showFinalPopUp, 1);
                     // startActivity(showFinalPopUp);
                     // finish();
@@ -420,12 +436,14 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                     //  Toast toast = Toast.makeText(getApplicationContext(),"you found it", Toast.LENGTH_LONG);
                     //   toast.show();
                     index++; //go to next index in treasure chest
+                    String fact = chest.funFact;
                     setUpTreasureChest(index);
                     circle.setCenter(chest.getRingCoordinates());
                     circle.setRadius(chest.radius);
                     hint.setText(chest.hint);
                     Intent showPopUp = new Intent(this, popUp.class);   //this shows the new pop up with amomunt of bonus gold
                     showPopUp.putExtra("bonus", bonus);
+                    showPopUp.putExtra("fact", fact);
                     startActivity(showPopUp);
                 }
 
