@@ -167,16 +167,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
     //this sets up the array with the tresure chest locations in an array so we can pull an induvual chest and know where it is.
     private void setUpTreasureArray() {
         int i = 0;
-        /*TreasureChest temp = new TreasureChest();
-        temp.setLatitude(37.375010);
-        temp.setLongitude( -77.529626);
-        temp.setRingLatitude(37.374334);
-        temp.setRingLongitude(-77.529381);
-        temp.setRadius(150);
-        temp.setHint("hint1");
-        array[i] = temp;
 
-         */
 
         // The compass
         TreasureChest temp = new TreasureChest();
@@ -189,21 +180,12 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "To find your way you’ll need at least\n" +
                 "This item that will help guide the way\n" +
                 "By pointing north, south, west and east");
-        temp.setFunFact("tester");                              //TODO this is where funfact is called do this for the rest of the chests
+        temp.setFunFact("The Compass, a well-known landmark at VCU, was formerly the heart of the campus.");                              //TODO this is where funfact is called do this for the rest of the chests
         array[i] = temp;
 
 
         i++;
-        /*TreasureChest temp2 = new TreasureChest();
-        temp2.setLatitude(37.375120);
-        temp2.setLongitude( -77.528674);
-        temp2.setRingLatitude(37.375054);
-        temp2.setRingLongitude(-77.527811);
-        temp2.setRadius(50);
-        temp2.setHint("hint2");
-        array[i] = temp2;
 
-         */
 
         //MONROE PARK
         TreasureChest temp2 = new TreasureChest();
@@ -216,49 +198,38 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "The children play and we can talk\n" +
                 "Find this place if you want a lark\n" +
                 "The answer you seek is in the Monroe...");
-        temp2.setFunFact("tester2");
+        temp2.setFunFact("Monroe Park is a 7.5 acres landscaped park located 1 mile (1.6 km) northwest of the Virginia State Capitol Building in Richmond, Virginia " +
+                "and right infront of VCU's East Hall Engineering building. The park unofficially demarcates the eastern \"point\" of the Fan District \n" +
+                "and is considered to be Richmond's oldest park.\n");
         array[i] = temp2;
 
         i++;
 
-        /*TreasureChest temp3 = new TreasureChest();
-        temp3.setLatitude(37.375367);
-        temp3.setLongitude( -77.529086);
-        temp3.setRingLatitude(37.375502);
-        temp3.setRingLongitude(-77.529615);
-        temp3.setRadius(50);
-        temp3.setHint("hint3");
-        array[i] = temp3;
-*/
-        // COMMONS
+
+
+        // ram horns
         TreasureChest temp3 = new TreasureChest();
-        temp3.setLatitude(37.546555);
-        temp3.setLongitude(-77.453596);
+        temp3.setLatitude(37.546542);
+        temp3.setLongitude(-77.453570);
         temp3.setRingLatitude(37.546555);
         temp3.setRingLongitude(-77.453596);
         temp3.setRadius(150);
         temp3.setHint("This is the place at vcu where you go to get some food." +
                 "Use your commons ense");
-        temp3.setFunFact("tester3");
+        temp3.setFunFact("The Ram Horns is the symbol of VCU. During orientation," +
+                "it is a tradition that all freshmen walk past the mythical horns and make a wish on them. " +
+                "If the freshmen are then able to graduate, their wishes will come true.");
         array[i] = temp3;
 
         i++;
 
-        /*TreasureChest temp4 = new TreasureChest();
-        temp4.setLatitude(37.375128);
-        temp4.setLongitude( -77.529200);
-        temp4.setRingLatitude(37.375055);
-        temp4.setRingLongitude(-77.529104);
-        temp4.setRadius(50);
-        temp4.setHint("hint4");
-        array[i] = temp4;
-*/
-        //SOCCER FIELD
+
+        //EYGPT BUILDING
         TreasureChest temp4 = new TreasureChest();
-        temp4.setLatitude(37.544009);
-        temp4.setLongitude(-77.455157);
-        temp4.setRingLatitude(37.543992);
-        temp4.setRingLongitude(-77.455168);
+        temp4.setLatitude(37.539231);
+        temp4.setLongitude(-77.429427);
+        temp4.setRingLatitude(37.545038);
+        temp4.setRingLongitude( -77.455127);
         temp4.setRadius(150);
         temp4.setHint("The place you must find: the school it's behind, \n" +
                 "a place you can run, where it can be fun, \n" +
@@ -266,7 +237,9 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 "where you can wear cleats, where you have to bring seats. \n" +
                 "Everywhere is green; where a game can be seen. \n" +
                 "Where the players are all, trying to get the ball.");
-        temp4.setFunFact("tester4");
+        temp4.setFunFact("The Egyptian Building was The building, designed by architect Thomas S. Steward, was completed in 1846 and \n" +
+                "was the first permanent home of the Medical Department of Hampden-Sydney College (later the Medical College of Virginia). \n" +
+                "It is considered one of the nation’s best examples of the Egyptian Revival style.");
         array[i] = temp4;
 
 
@@ -406,7 +379,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
             Log.d(TAG, "checkDistance: curent chest locaiton " + treasureLocation.toString());
             distanceText.setText("Distance to Chest =" +location.distanceTo(treasureLocation) + "");
             Log.d(TAG, "checkDistance: distance to tresure ==" + location.distanceTo(treasureLocation));
-            if (location.distanceTo(treasureLocation) >= 20) {                                                           //we have found a tresaure chest in meters
+            if (location.distanceTo(treasureLocation) <= 20) {                                                           //we have found a tresaure chest in meters
                 int bonus = (int) ((mTimeLeftInMilis / 1000) / 1.5); //sec left / 1.5 as bous gold max = 200gold
                 coins = coins + bonus + 100;
                 hideDistance();
@@ -416,7 +389,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 editor.putInt("statsChests", ++statsChests);
                 editor.apply();
 
-                if (index >= 4)        //if weve reched the end of the game
+                if (index >= 3)        //if weve reched the end of the game
                 {
                     done = true;
                     coinsText.setText(String.valueOf(coins));
