@@ -215,7 +215,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp3.setRingLongitude(-77.453596);
         temp3.setRadius(150);
         temp3.setHint("This is the place at vcu where you go to get some food." +
-                "Use your commons ense");
+                "Use your common sense");
         temp3.setFunFact("The Ram Horns is the symbol of VCU. During orientation," +
                 "it is a tradition that all freshmen walk past the mythical horns and make a wish on them. " +
                 "If the freshmen are then able to graduate, their wishes will come true.");
@@ -228,15 +228,10 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         TreasureChest temp4 = new TreasureChest();
         temp4.setLatitude(37.539231);
         temp4.setLongitude(-77.429427);
-        temp4.setRingLatitude(37.545038);
-        temp4.setRingLongitude( -77.455127);
+        temp4.setRingLatitude(37.539233);
+        temp4.setRingLongitude( -77.429425);
         temp4.setRadius(150);
-        temp4.setHint("The place you must find: the school it's behind, \n" +
-                "a place you can run, where it can be fun, \n" +
-                "to play with a team, if you know what I mean, \n" +
-                "where you can wear cleats, where you have to bring seats. \n" +
-                "Everywhere is green; where a game can be seen. \n" +
-                "Where the players are all, trying to get the ball.");
+        temp4.setHint("to be decided");
         temp4.setFunFact("The Egyptian Building was The building, designed by architect Thomas S. Steward, was completed in 1846 and \n" +
                 "was the first permanent home of the Medical Department of Hampden-Sydney College (later the Medical College of Virginia). \n" +
                 "It is considered one of the nation’s best examples of the Egyptian Revival style.");
