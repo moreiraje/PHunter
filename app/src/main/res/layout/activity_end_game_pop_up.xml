@@ -33,9 +33,9 @@
         android:id="@+id/imageView4"
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/rewards"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="20dp"
         android:layout_marginBottom="0dp"
         android:src="@drawable/openedchests" />
@@ -43,12 +43,12 @@
     <TextView
         android:id="@+id/rewards"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="122dp"
         android:fontFamily="@font/rumble"
-        android:text="YOU'VE REACHED THE END! \n FINAL REWARDS"
+        android:text="QUEST COMPLETE! \n FINAL REWARDS"
         android:textAlignment="center"
         android:textColor="#fff"
-        android:textSize="25dp" />
+        android:textSize="50dp" />
 
     <TextView
         android:id="@+id/goldEarned"
@@ -183,5 +183,5 @@
         android:layout_alignTop="@+id/fun_fact"
         android:layout_marginTop="50dp"
         android:textColor="#fff"
-        android:textSize="20dp" />
+        android:textSize="25dp" />
 </RelativeLayout>

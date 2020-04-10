@@ -175,7 +175,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp.setLongitude(-77.453206);
         temp.setRingLatitude(37.548158);
         temp.setRingLongitude(-77.453170);
-        temp.setRadius(150);
+        temp.setRadius(100);
         temp.setHint("If you’re sailing on a pirate ship\n" +
                 "To find your way you’ll need at least\n" +
                 "This item that will help guide the way\n" +
@@ -213,42 +213,54 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
         temp3.setLongitude(-77.453570);
         temp3.setRingLatitude(37.546555);
         temp3.setRingLongitude(-77.453596);
-        temp3.setRadius(150);
-        temp3.setHint("This is the place at vcu where you go to get some food." +
-                "Use your common sense");
+        temp3.setRadius(90);
+        temp3.setHint("This is where the horns stand tall. Use your common sense");
         temp3.setFunFact("The Ram Horns is the symbol of VCU. During orientation," +
                 "it is a tradition that all freshmen walk past the mythical horns and make a wish on them. " +
                 "If the freshmen are then able to graduate, their wishes will come true.");
         array[i] = temp3;
-
         i++;
 
-
-        //EYGPT BUILDING
+        //Richmond Howitzers Monument
         TreasureChest temp4 = new TreasureChest();
-        temp4.setLatitude(37.539231);
-        temp4.setLongitude(-77.429427);
-        temp4.setRingLatitude(37.539233);
-        temp4.setRingLongitude( -77.429425);
-        temp4.setRadius(150);
-        temp4.setHint("to be decided");
-        temp4.setFunFact("The Egyptian Building was The building, designed by architect Thomas S. Steward, was completed in 1846 and \n" +
-                "was the first permanent home of the Medical Department of Hampden-Sydney College (later the Medical College of Virginia). \n" +
-                "It is considered one of the nation’s best examples of the Egyptian Revival style.");
+        temp4.setLatitude(37.548675);
+        temp4.setLongitude(-77.454942);
+        temp4.setRingLatitude(37.548673);
+        temp4.setRingLongitude(-77.454941);
+        temp4.setRadius(75);
+        temp4.setHint("I stand tall even though my cannon is gone.");
+        temp4.setFunFact("In the 1900s A sign next to the statue, placed there at some unknown date, seems to indicate that " +
+                "the proper respect was not being shown by the local citizenry. The Richmond Howitzer Association " +
+                "has offered a $10 reward \"for the arrest of any one throwing rocks into or trespassing on this park.\"");
         array[i] = temp4;
 
 
         i++;
 
         TreasureChest temp5 = new TreasureChest();
-        temp5.setLatitude(37.375317);
-        temp5.setLongitude(-77.528775);
-        temp5.setRingLatitude(37.375317);
-        temp5.setRingLongitude(-77.528775);
-        temp5.setRadius(50);
-        temp5.setHint("hint5");
-        temp5.setFunFact("tester5");
+        temp5.setLatitude(37.548793);
+        temp5.setLongitude(-77.452890);
+        temp5.setRingLatitude(37.548791);
+        temp5.setRingLongitude(-77.452894);
+        temp5.setRadius(80);
+        temp5.setHint("A small classroom. That doesn't have a room");
+        temp5.setFunFact("Unveiled at the same time as this sculplure was the \"The Tableith\"  The " +
+                "list of events imprinted on this sculpture led to " +
+                "Richmond Professional Institute and the Medical " +
+                "College of Virginia to combine into VCU." );
         array[i] = temp5;
+
+
+        i++;
+        TreasureChest temp6 = new TreasureChest();
+        temp6.setLatitude(37.375317);
+        temp6.setLongitude(-77.528775);
+        temp6.setRingLatitude(37.375317);
+        temp6.setRingLongitude(-77.528775);
+        temp6.setRadius(50);
+        temp6.setHint("hint5");
+        temp6.setFunFact("tester5");
+        array[i] = temp6;
 
 
         i++;
@@ -384,7 +396,7 @@ public class MapActivity extends FragmentActivity implements GoogleApiClient.Con
                 editor.putInt("statsChests", ++statsChests);
                 editor.apply();
 
-                if (index >= 3)        //if weve reched the end of the game
+                if (index >= 4)        //if weve reched the end of the game
                 {
                     done = true;
                     coinsText.setText(String.valueOf(coins));
