@@ -1,4 +1,4 @@
-package com.example.treasure;
+package com.aviGames.treasure;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

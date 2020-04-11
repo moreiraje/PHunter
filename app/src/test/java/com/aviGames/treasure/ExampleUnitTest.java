@@ -1,4 +1,4 @@
-package com.example.treasure;
+package com.aviGames.treasure;
 
 import org.junit.Test;
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.treasure">
+    package="com.aviGames.treasure">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
@@ -15,15 +15,15 @@
         android:roundIcon="@mipmap/logo_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".EndGamePopUp"
+        <activity android:name="com.aviGames.treasure.EndGamePopUp"
             android:theme="@style/AppTheme.CustomPopUp"></activity>
         <activity
-            android:name=".popUp"
+            android:name="com.aviGames.treasure.popUp"
             android:theme="@style/AppTheme.CustomPopUp"></activity> <!-- android:background = "@color/colorPrimaryDark"> -->
-        <activity android:name=".MyHunts" />
-        <activity android:name=".NewGame" />
-        <activity android:name=".ProfileScreen" />
-        <activity android:name=".StartUpScreen">
+        <activity android:name="com.aviGames.treasure.MyHunts" />
+        <activity android:name="com.aviGames.treasure.NewGame" />
+        <activity android:name="com.aviGames.treasure.ProfileScreen" />
+        <activity android:name="com.aviGames.treasure.StartUpScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -43,7 +43,7 @@
             android:value="@string/google_maps_key" />
 
         <activity
-            android:name=".MapActivity"
+            android:name="com.aviGames.treasure.MapActivity"
             android:label="@string/title_activity_map" />
     </application>
 

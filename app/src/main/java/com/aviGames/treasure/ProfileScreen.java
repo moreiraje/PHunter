@@ -1,4 +1,4 @@
-package com.example.treasure;
+package com.aviGames.treasure;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;

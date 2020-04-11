@@ -1,4 +1,4 @@
-package com.example.treasure;
+package com.aviGames.treasure;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.example.treasure;
+package com.aviGames.treasure;
 
 import com.google.android.gms.maps.model.LatLng;
 
